@@ -1,13 +1,13 @@
 :root {
-  --paper: #F5F2EB;
+  --paper: #e7e4dd;
   --ink: #1b1814;
   --ink-soft: #544d44;
   --ink-faint: #938b7e;
   --clay: #9c6b4e;
   --line: rgba(27, 24, 20, 0.14);
   --line-2: rgba(27, 24, 20, 0.28);
-  --serif: var(--font-serif), Georgia, serif;
-  --sans: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+  --serif: var(--font-cormorant-garamond), Georgia, serif;
+  --sans: var(--font-hanken-grotesk), 'Helvetica Neue', Arial, sans-serif;
   --nav-h: 80px;
 }
 

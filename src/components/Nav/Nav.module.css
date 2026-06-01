@@ -40,43 +40,29 @@
 }
 
 .navLinks a {
-  font-family: var(--sans);
+  font-family: var(--font-playfair-display);
   text-decoration: none;
   color: var(--ink);
-  font-size: 0.74rem;
+  font-size: .85rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
   font-weight: 400;
   opacity: 0.72;
-  transition: opacity 0.3s;
-  position: relative;
+  transition: opacity 0.3s, font-size 0.3s, font-weight 0.3s;
   padding: 6px 0;
   white-space: nowrap;
 }
 
-.navLinks a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 0;
-  height: 1px;
-  background: var(--ink);
-  transition: width 0.35s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
-
 .navLinks a:hover {
   opacity: 1;
-}
-
-.navLinks a:hover::after {
-  width: 100%;
+  font-size: 0.92rem;
+  font-weight: 700;
 }
 
 .navCta {
   justify-self: end;
-  font-family: var(--sans);
-  font-size: 0.72rem;
+  font-family: var(--font-playfair-display);
+  font-size: 1rem;
   letter-spacing: 0.13em;
   text-transform: uppercase;
   font-weight: 500;
@@ -173,6 +159,7 @@
   border: 1px solid var(--ink) !important;
   border-radius: 30px;
   text-align: center !important;
+  font-family: var(--font-playfair-display) !important;
   font-weight: 500 !important;
   padding: 15px 24px !important;
 }

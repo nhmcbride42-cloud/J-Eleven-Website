@@ -13,29 +13,15 @@ function DesktopMockup() {
         <div className={styles.browserUrl}>mistytidwell.com</div>
       </div>
       <div className={styles.browserScreen}>
-        {/* Mini real estate site */}
-        <div className={styles.siteNav}>
-          <span className={styles.siteLogo}>MT Real Estate</span>
-          <div className={styles.siteNavLinks}>
-            <span>Listings</span><span>Process</span><span>Reviews</span><span>Contact</span>
-          </div>
-        </div>
-        <div className={styles.siteHero}>
-          <p className={styles.siteHeroSub}>East Tennessee&apos;s Trusted Agent</p>
-          <h3 className={styles.siteHeroHeading}>Find Your<br />Perfect Home</h3>
-          <div className={styles.siteHeroBtn}>View Listings</div>
-        </div>
-        <div className={styles.siteListings}>
-          {[1, 2, 3].map((i) => (
-            <div key={i} className={styles.siteListing}>
-              <div className={styles.siteListingImg} />
-              <div className={styles.siteListingInfo}>
-                <div className={styles.siteListingPrice} />
-                <div className={styles.siteListingAddr} />
-              </div>
-            </div>
-          ))}
-        </div>
+        <video
+          src="/Misty Tidwell Recording.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+          className={styles.screenVideo}
+        />
+        <PhoneMockup />
       </div>
     </div>
   );
@@ -90,7 +76,6 @@ export default function OurWork() {
 
           <div className={styles.mockupArea}>
             <DesktopMockup />
-            <PhoneMockup />
           </div>
 
           <div className={styles.featuredInfo}>

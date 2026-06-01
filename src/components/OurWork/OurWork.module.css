@@ -54,7 +54,7 @@
 
 .visible {
   opacity: 1 !important;
-  transform: translateY(0) !important;
+  transform: none !important;
 }
 
 /* ── Mockup area ── */
@@ -63,17 +63,17 @@
   position: relative;
   background: linear-gradient(135deg, #f0ebe4 0%, #e2d9cf 100%);
   display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 3vh 3vw 2vh;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2vh 2vw;
   overflow: hidden;
 }
 
 /* Desktop frame */
 
 .desktopFrame {
-  width: 85%;
-  max-width: 520px;
+  width: 100%;
+  max-width: 900px;
   background: #1c1917;
   border-radius: 10px 10px 6px 6px;
   box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.15);
@@ -118,8 +118,18 @@
 }
 
 .browserScreen {
+  position: relative;
   background: #faf8f5;
-  overflow: hidden;
+  overflow: visible;
+}
+
+.screenVideo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* Mini real estate site inside browser */
@@ -233,9 +243,9 @@
 
 .phoneFrame {
   position: absolute;
-  bottom: 16px;
-  right: 8%;
-  width: 70px;
+  bottom: 20px;
+  right: 16px;
+  width: 120px;
   background: #1c1917;
   border-radius: 14px;
   padding: 6px 4px 8px;

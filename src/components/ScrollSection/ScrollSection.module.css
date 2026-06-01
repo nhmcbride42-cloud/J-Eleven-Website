@@ -10,11 +10,10 @@
 /* Heading zone — fixed 28vh, same locked position as other sections */
 
 .content {
-  height: 28vh;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  padding: 0 8vw;
+  padding: 1.4rem 8vw;
   opacity: 0;
   transform: translateY(48px);
   transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),

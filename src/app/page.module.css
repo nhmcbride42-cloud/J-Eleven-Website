@@ -1,5 +1,5 @@
 .main {
-  height: calc(100vh - var(--nav-h));
+  height: calc(100dvh - var(--nav-h));
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;

@@ -4,6 +4,7 @@ import OurStoryReveal from "@/components/OurStory/OurStoryReveal";
 import OurServices from "@/components/OurServices/OurServices";
 import ScrollSection from "@/components/ScrollSection/ScrollSection";
 import ScrollContainer from "@/components/ScrollContainer/ScrollContainer";
+import OurWork from "@/components/OurWork/OurWork";
 
 export default function Home() {
   return (
@@ -19,9 +20,7 @@ export default function Home() {
 
         <OurServices />
 
-        <ScrollSection id="work">
-          <h2>Our <em>Work</em></h2>
-        </ScrollSection>
+        <OurWork />
 
         <ScrollSection id="contact">
           <h2>Contact <em>Us</em></h2>

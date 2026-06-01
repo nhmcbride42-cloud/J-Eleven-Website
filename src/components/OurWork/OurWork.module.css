@@ -1,0 +1,445 @@
+/* ── Section shell ── */
+
+.section {
+  height: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.headingZone {
+  height: 12vh;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 6vw;
+}
+
+.heading {
+  font-family: var(--font-cormorant-garamond);
+  font-weight: 400;
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  line-height: 1;
+  color: #5d473d;
+  letter-spacing: -0.01em;
+}
+
+.heading em { font-style: normal; }
+
+/* ── Two-column layout ── */
+
+.layout {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 3fr 1.1fr;
+  gap: 1.4vw;
+  padding: 0 6vw 3vh;
+}
+
+/* ── Featured card ── */
+
+.featured {
+  background: #fff;
+  border-radius: 20px;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.9s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.9s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.visible {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ── Mockup area ── */
+
+.mockupArea {
+  position: relative;
+  background: linear-gradient(135deg, #f0ebe4 0%, #e2d9cf 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 3vw 2vh;
+  overflow: hidden;
+}
+
+/* Desktop frame */
+
+.desktopFrame {
+  width: 85%;
+  max-width: 520px;
+  background: #1c1917;
+  border-radius: 10px 10px 6px 6px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 4px 12px rgba(0,0,0,0.15);
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.browserBar {
+  height: 28px;
+  background: #2d2926;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 12px;
+}
+
+.browserDots {
+  display: flex;
+  gap: 5px;
+}
+
+.browserDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.18);
+}
+
+.browserUrl {
+  flex: 1;
+  height: 14px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 4px;
+  font-family: var(--sans);
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.4);
+  display: flex;
+  align-items: center;
+  padding: 0 8px;
+  max-width: 180px;
+  margin: 0 auto;
+}
+
+.browserScreen {
+  background: #faf8f5;
+  overflow: hidden;
+}
+
+/* Mini real estate site inside browser */
+
+.siteNav {
+  height: 22px;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+
+.siteLogo {
+  font-family: var(--serif);
+  font-size: 0.5rem;
+  font-weight: 600;
+  color: #7a5c4a;
+  letter-spacing: 0.02em;
+}
+
+.siteNavLinks {
+  display: flex;
+  gap: 8px;
+}
+
+.siteNavLinks span {
+  font-size: 0.38rem;
+  color: #999;
+  font-family: var(--sans);
+}
+
+.siteHero {
+  background: linear-gradient(135deg, #8b6355 0%, #a57865 100%);
+  padding: 14px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.siteHeroSub {
+  font-family: var(--sans);
+  font-size: 0.38rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.siteHeroHeading {
+  font-family: var(--serif);
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.siteHeroBtn {
+  margin-top: 4px;
+  background: #fff;
+  color: #7a5c4a;
+  font-family: var(--sans);
+  font-size: 0.38rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 20px;
+  width: fit-content;
+}
+
+.siteListings {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+}
+
+.siteListing {
+  flex: 1;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+.siteListingImg {
+  height: 28px;
+  background: linear-gradient(135deg, #c8b8ac 0%, #b5a497 100%);
+}
+
+.siteListingInfo {
+  padding: 4px 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.siteListingPrice {
+  height: 5px;
+  width: 55%;
+  background: #3d3330;
+  border-radius: 2px;
+}
+
+.siteListingAddr {
+  height: 4px;
+  width: 80%;
+  background: #ccc;
+  border-radius: 2px;
+}
+
+/* Phone frame */
+
+.phoneFrame {
+  position: absolute;
+  bottom: 16px;
+  right: 8%;
+  width: 70px;
+  background: #1c1917;
+  border-radius: 14px;
+  padding: 6px 4px 8px;
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.phoneIsland {
+  width: 22px;
+  height: 6px;
+  background: #2d2926;
+  border-radius: 4px;
+}
+
+.phoneScreen {
+  width: 100%;
+  background: #faf8f5;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.phoneSiteHero {
+  background: linear-gradient(135deg, #8b6355 0%, #a57865 100%);
+  padding: 8px 6px 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.phoneSiteName {
+  font-family: var(--sans);
+  font-size: 0.32rem;
+  color: rgba(255,255,255,0.7);
+  letter-spacing: 0.06em;
+}
+
+.phoneSiteHeading {
+  font-family: var(--serif);
+  font-size: 0.55rem;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.phoneSiteBtn {
+  margin-top: 3px;
+  background: #fff;
+  color: #7a5c4a;
+  font-family: var(--sans);
+  font-size: 0.28rem;
+  font-weight: 600;
+  padding: 2px 5px;
+  border-radius: 10px;
+  width: fit-content;
+}
+
+.phoneListing {
+  height: 18px;
+  background: #fff;
+  margin: 3px 4px;
+  border-radius: 3px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+  border-left: 2px solid #a57865;
+}
+
+/* ── Featured info strip ── */
+
+.featuredInfo {
+  padding: 1.6vh 1.8vw;
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  border-top: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+
+.featuredMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.industry {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clay);
+}
+
+.clientName {
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  flex: 1;
+}
+
+.tag {
+  font-family: var(--sans);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  background: rgba(27, 24, 20, 0.06);
+  border-radius: 40px;
+  padding: 4px 12px;
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 28ch;
+  flex-shrink: 0;
+  border-left: 1px solid var(--line);
+  padding-left: 1.4vw;
+}
+
+.stars {
+  color: #c9a84c;
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+}
+
+.quote {
+  font-family: var(--serif);
+  font-size: clamp(0.75rem, 0.85vw, 0.88rem);
+  font-style: italic;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+.reviewer {
+  font-family: var(--sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+}
+
+/* ── Coming soon column ── */
+
+.soonCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4vw;
+}
+
+.soonCard {
+  flex: 1;
+  background: #fff;
+  border-radius: 20px;
+  border: 2px dashed var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateX(24px);
+  transition: opacity 0.8s cubic-bezier(0.2, 0.7, 0.2, 1),
+              transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.soonInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.soonDots {
+  display: flex;
+  gap: 6px;
+}
+
+.soonDots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-2);
+}
+
+.soonText {
+  font-family: var(--serif);
+  font-size: clamp(0.9rem, 1.1vw, 1.15rem);
+  font-weight: 400;
+  color: var(--ink-faint);
+  text-align: center;
+  line-height: 1.45;
+}
+
+.soonText em {
+  font-style: italic;
+  color: var(--clay);
+}

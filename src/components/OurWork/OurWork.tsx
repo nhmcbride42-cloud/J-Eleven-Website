@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import styles from "./OurWork.module.css";
 
 const NEEDED = [
@@ -55,12 +56,10 @@ export default function OurWork() {
         {/* ── Left: info card ── */}
         <div className={`${styles.infoCard} ${s(1)}`}>
 
-          {/* Header */}
           <div className={styles.infoTop}>
             <span className={styles.clientName}>Misty Tidwell, <em>Real Estate Agent</em></span>
           </div>
 
-          {/* Pillars row */}
           <div className={styles.pillars}>
             <div className={styles.pillar}>
               <span className={styles.pillarLabel}>The Problem</span>
@@ -85,29 +84,36 @@ export default function OurWork() {
             </div>
           </div>
 
-          {/* Device showcase */}
           <div className={styles.showcase}>
-            {/* Left half: phone */}
             <div className={styles.showcaseHalf}>
               <div className={styles.phone}>
                 <div className={styles.phoneBody}>
                   <div className={styles.phoneIsland} />
                   <div className={styles.phoneScreen}>
                     <div className={styles.imgPlaceholder}>
-                      <img src="/mistymobile.jpg" alt="Misty Tidwell mobile version" />
+                      <Image
+                        src="/mistymobile.jpg"
+                        alt="Misty Tidwell mobile version"
+                        width={71}
+                        height={135}
+                      />
                     </div>
                   </div>
                   <div className={styles.phoneBar} />
                 </div>
               </div>
             </div>
-            {/* Right half: monitor */}
             <div className={styles.showcaseHalf}>
               <div className={styles.monitor}>
                 <div className={styles.monitorBody}>
                   <div className={styles.monitorScreen}>
                     <div className={styles.imgPlaceholder}>
-                      <img src="/tidwellexample.png" alt="Misty Tidwell website desktop" />
+                      <Image
+                        src="/tidwellexample.png"
+                        alt="Misty Tidwell website desktop"
+                        width={279}
+                        height={151}
+                      />
                     </div>
                   </div>
                 </div>
@@ -117,7 +123,6 @@ export default function OurWork() {
             </div>
           </div>
 
-          {/* Review */}
           <div className={styles.review}>
             <div className={styles.reviewTop}>
               <span className={styles.reviewLabel}>Client Feedback</span>
@@ -131,7 +136,7 @@ export default function OurWork() {
             </div>
             <div className={styles.reviewBottom}>
               <span className={styles.reviewer}>— Misty Tidwell</span>
-              <a
+              
                 href="https://mistytidwell.com"
                 target="_blank"
                 rel="noopener noreferrer"

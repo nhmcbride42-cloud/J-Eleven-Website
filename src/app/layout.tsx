@@ -34,8 +34,56 @@ const hanken = Hanken_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "J Eleven Media — Web Design Studio",
-  description: "J Eleven Media web design studio.",
+  title: {
+    default: "J Eleven Media | Web Design & SEO — Lenoir City, TN",
+    template: "%s | J Eleven Media",
+  },
+  description:
+    "J Eleven Media is a web design studio serving Lenoir City, Loudon, Knoxville, and East Tennessee. We build custom websites, offer maintenance plans, domain management, and advanced local SEO.",
+  keywords: [
+    "web design Lenoir City TN",
+    "web design Knoxville TN",
+    "web design East Tennessee",
+    "Loudon County web design",
+    "small business website Tennessee",
+    "local SEO East Tennessee",
+    "website maintenance Lenoir City",
+    "affordable web design Tennessee",
+    "J Eleven Media",
+  ],
+  authors: [{ name: "J Eleven Media", url: "https://www.jelevenmedia.com" }],
+  creator: "J Eleven Media",
+  metadataBase: new URL("https://www.jelevenmedia.com"),
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.jelevenmedia.com",
+    siteName: "J Eleven Media",
+    title: "J Eleven Media | Web Design & SEO — Lenoir City, TN",
+    description:
+      "Custom websites, maintenance plans, and local SEO for small businesses in Lenoir City, Knoxville, and East Tennessee.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "J Eleven Media — Web Design Studio in Lenoir City, TN",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "J Eleven Media | Web Design — Lenoir City, TN",
+    description:
+      "Custom websites and local SEO for small businesses across East Tennessee.",
+    images: ["/og-image.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
 };
 
 export default function RootLayout({

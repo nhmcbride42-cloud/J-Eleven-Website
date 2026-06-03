@@ -3,64 +3,49 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./OurWork.module.css";
 
-function DesktopMockup() {
-  return (
-    <div className={styles.desktopFrame}>
-      <div className={styles.browserBar}>
-        <div className={styles.browserDots}>
-          <span /><span /><span />
-        </div>
-        <div className={styles.browserUrl}>mistytidwell.com</div>
-      </div>
-      <div className={styles.browserScreen}>
-        <video
-          src="/Misty Tidwell Recording.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-          className={styles.screenVideo}
-        />
-        <PhoneMockup />
-      </div>
-    </div>
-  );
-}
+const NEEDED = [
+  "Outdated website",
+  "Not enough features to support the business",
+  "No integrated listings",
+  "Difficult to update and maintain",
+  "No personal touch or integrated reviews",
+];
 
-function PhoneMockup() {
-  return (
-    <div className={styles.phoneFrame}>
-      <div className={styles.phoneIsland} />
-      <div className={styles.phoneScreen}>
-        <div className={styles.phoneSiteHero}>
-          <p className={styles.phoneSiteName}>MT Real Estate</p>
-          <h4 className={styles.phoneSiteHeading}>Find Your<br />Home</h4>
-          <div className={styles.phoneSiteBtn}>View Listings</div>
-        </div>
-        <div className={styles.phoneListing} />
-        <div className={styles.phoneListing} />
-      </div>
-    </div>
-  );
-}
+const DELIVERED = [
+  "Fresh, modern design reflecting the client",
+  "Features added to support the business",
+  "Manual listings integration for ease of use",
+  "Admin page created for easy updates",
+  "Personal bio and integrated reviews",
+];
 
 export default function OurWork() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [shown, setShown] = useState(0);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
     const io = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) setVisible(true);
-        else setVisible(false);
+        if (entry.isIntersecting) {
+          setTimeout(() => setShown(1), 200);   // infoCard
+          setTimeout(() => setShown(2), 1200);  // comingSoon
+          setTimeout(() => setShown(3), 1100);  // What Clients Receive
+          setTimeout(() => setShown(4), 1500);  // FAQ
+          setTimeout(() => setShown(5), 1900);  // CTA
+          setTimeout(() => setShown(6), 2400);  // dividers
+        } else {
+          setShown(0);
+        }
       },
       { threshold: 0.3 }
     );
     io.observe(section);
     return () => io.disconnect();
   }, []);
+
+  const s = (n: number) => shown >= n ? styles.visible : "";
 
   return (
     <section ref={sectionRef} id="work" className={styles.section} data-snap-section>
@@ -71,51 +56,101 @@ export default function OurWork() {
 
       <div className={styles.layout}>
 
-        {/* ── Featured project card ── */}
-        <div className={`${styles.featured} ${visible ? styles.visible : ""}`}>
+        {/* ── Left: info card ── */}
+        <div className={`${styles.infoCard} ${s(1)}`}>
 
-          <div className={styles.mockupArea}>
-            <DesktopMockup />
+          {/* Header */}
+          <div className={styles.infoTop}>
+            <span className={styles.clientName}>Misty Tidwell, <em>Real Estate Agent</em></span>
           </div>
 
-          <div className={styles.featuredInfo}>
-            <div className={styles.featuredMeta}>
-              <span className={styles.industry}>Real Estate</span>
-              <span className={styles.clientName}>Misty Tidwell</span>
+          {/* Pillars row */}
+          <div className={styles.pillars}>
+            <div className={styles.pillar}>
+              <span className={styles.pillarLabel}>The Problem</span>
+              <ul className={styles.pillarList}>
+                {NEEDED.map((item) => (
+                  <li key={item} className={styles.pillarItem}>
+                    <span className={styles.pillarDot} />{item}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <div className={styles.tags}>
-              {["Custom Design", "Color Scheme Match", "Listings Integration", "Work Process Sections", "Review Integration"].map((t) => (
-                <span key={t} className={styles.tag}>{t}</span>
-              ))}
-            </div>
-
-            <div className={styles.review}>
-              <div className={styles.stars}>★★★★★</div>
-              <p className={styles.quote}>
-                &ldquo;I couldn&apos;t be happier with my new website! J Eleven Media delivered exactly what I was looking for and created a website that truly represents me, my business, and my brand. Hayden was fantastic to work with throughout the entire process.&rdquo;
-              </p>
-              <span className={styles.reviewer}>— Misty Tidwell</span>
+            <div className={styles.pillarDivider} />
+            <div className={`${styles.pillar} ${styles.pillarSolution}`}>
+              <span className={`${styles.pillarLabel} ${styles.pillarLabelSolution}`}>What We Delivered</span>
+              <ul className={styles.pillarList}>
+                {DELIVERED.map((item) => (
+                  <li key={item} className={`${styles.pillarItem} ${styles.pillarItemSolution}`}>
+                    <span className={styles.checkmark}>✓</span>{item}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
 
-        {/* ── Coming soon column ── */}
-        <div className={styles.soonCol}>
-          {[0, 1].map((i) => (
-            <div
-              key={i}
-              className={`${styles.soonCard} ${visible ? styles.visible : ""}`}
-              style={{ transitionDelay: `${200 + i * 120}ms` }}
-            >
-              <div className={styles.soonInner}>
-                <div className={styles.soonDots}>
-                  <span /><span /><span />
+          {/* Device showcase */}
+          <div className={styles.showcase}>
+            {/* Left half: phone */}
+            <div className={styles.showcaseHalf}>
+              <div className={styles.phone}>
+                <div className={styles.phoneBody}>
+                  <div className={styles.phoneIsland} />
+                  <div className={styles.phoneScreen}>
+                    <div className={styles.imgPlaceholder}>
+                      <span>Mobile Screenshot</span>
+                    </div>
+                  </div>
+                  <div className={styles.phoneBar} />
                 </div>
-                <p className={styles.soonText}>More Projects<br /><em>Coming Soon</em></p>
               </div>
             </div>
-          ))}
+            {/* Right half: monitor */}
+            <div className={styles.showcaseHalf}>
+              <div className={styles.monitor}>
+                <div className={styles.monitorBody}>
+                  <div className={styles.monitorScreen}>
+                    <div className={styles.imgPlaceholder}>
+                      <span>Desktop Screenshot</span>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.monitorNeck} />
+                <div className={styles.monitorFoot} />
+              </div>
+            </div>
+          </div>
+
+          {/* Review */}
+          <div className={styles.review}>
+            <div className={styles.reviewTop}>
+              <span className={styles.reviewLabel}>Client Feedback</span>
+              <div className={styles.stars}>★★★★★</div>
+            </div>
+            <div className={styles.quoteWrap}>
+              <span className={styles.quoteMark}>&ldquo;</span>
+              <p className={styles.quote}>
+                I couldn&apos;t be happier with my new website! J Eleven Media delivered exactly what I was looking for and created a website that truly represents me, my business, and my brand.
+              </p>
+            </div>
+            <div className={styles.reviewBottom}>
+              <span className={styles.reviewer}>— Misty Tidwell</span>
+              <a
+                href="https://mistytidwell.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.viewWork}
+              >
+                View Work →
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        {/* ── Right: coming soon ── */}
+        <div className={`${styles.comingSoon} ${s(1)}`}>
+          <p className={styles.comingSoonText}>More Projects<br /><em>Coming Soon</em></p>
         </div>
 
       </div>

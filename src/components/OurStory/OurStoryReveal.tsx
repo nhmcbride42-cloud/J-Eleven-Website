@@ -11,22 +11,32 @@ export default function OurStoryReveal() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          // Stagger each pillar in
-          setTimeout(() => setShown(1), 200);
-          setTimeout(() => setShown(2), 800);
-          setTimeout(() => setShown(3), 1400);
-        } else {
-          setShown(0);
-        }
-      },
-      { threshold: 0.6 }
-    );
+    let fired = false;
 
-    io.observe(section);
-    return () => io.disconnect();
+    const trigger = () => {
+      fired = true;
+      setTimeout(() => setShown(1), 200);
+      setTimeout(() => setShown(2), 800);
+      setTimeout(() => setShown(3), 1400);
+    };
+
+    const check = () => {
+      if (fired) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
+    };
+
+    let scrollEl: Element | Window = window;
+    let el = section.parentElement;
+    while (el && el !== document.body) {
+      const ov = getComputedStyle(el).overflowY;
+      if (ov === "scroll" || ov === "auto") { scrollEl = el; break; }
+      el = el.parentElement;
+    }
+
+    check();
+    scrollEl.addEventListener("scroll", check, { passive: true });
+    return () => scrollEl.removeEventListener("scroll", check);
   }, []);
 
   return (

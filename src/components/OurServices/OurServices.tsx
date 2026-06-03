@@ -45,30 +45,10 @@ const icons = {
 };
 
 const SERVICES = [
-  {
-    num: "01",
-    label: "Website Development",
-    desc: "From concept to launch, we build custom websites that captivate your audience and grow your business.",
-    side: "left",
-  },
-  {
-    num: "02",
-    label: "Maintenance Plans",
-    desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again.",
-    side: "right",
-  },
-  {
-    num: "03",
-    label: "Domain Management",
-    desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details.",
-    side: "left",
-  },
-  {
-    num: "04",
-    label: "Advanced SEO",
-    desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen.",
-    side: "right",
-  },
+  { num: "01", label: "Website Development", desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out." },
+  { num: "02", label: "Maintenance Plans",   desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again." },
+  { num: "03", label: "Domain Management",   desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details." },
+  { num: "04", label: "Advanced SEO",        desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen." },
 ];
 
 export default function OurServices() {
@@ -79,75 +59,107 @@ export default function OurServices() {
     const section = sectionRef.current;
     if (!section) return;
 
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => setShown(1), 200);
-          setTimeout(() => setShown(2), 800);
-          setTimeout(() => setShown(3), 1400);
-          setTimeout(() => setShown(4), 2000);
-        } else {
-          setShown(0);
-        }
-      },
-      { threshold: 0.4 }
-    );
+    let fired = false;
 
-    io.observe(section);
-    return () => io.disconnect();
+    const trigger = () => {
+      fired = true;
+      setTimeout(() => setShown(1), 200);
+      setTimeout(() => setShown(2), 600);
+      setTimeout(() => setShown(3), 1000);
+      setTimeout(() => setShown(4), 1400);
+      setTimeout(() => setShown(5), 1900);
+      setTimeout(() => setShown(6), 2300);
+    };
+
+    const check = () => {
+      if (fired) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) trigger();
+    };
+
+    let scrollEl: Element | Window = window;
+    let el = section.parentElement;
+    while (el && el !== document.body) {
+      const ov = getComputedStyle(el).overflowY;
+      if (ov === "scroll" || ov === "auto") { scrollEl = el; break; }
+      el = el.parentElement;
+    }
+
+    check();
+    scrollEl.addEventListener("scroll", check, { passive: true });
+    return () => scrollEl.removeEventListener("scroll", check);
   }, []);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "J Eleven Media",
+    "description": "Web design studio serving Lenoir City, Knoxville, Loudon, and East Tennessee.",
+    "url": "https://www.jelevenmedia.com",
+    "areaServed": [
+      { "@type": "City", "name": "Lenoir City", "addressRegion": "TN" },
+      { "@type": "City", "name": "Loudon",      "addressRegion": "TN" },
+      { "@type": "City", "name": "Knoxville",   "addressRegion": "TN" },
+      { "@type": "State", "name": "East Tennessee" },
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Web Design Services",
+      "itemListElement": SERVICES.map((s) => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": s.label,
+          "description": s.desc,
+        },
+      })),
+    },
+  };
+
   return (
-    <section ref={sectionRef} id="services" className={styles.section} data-snap-section>
+    <section
+      ref={sectionRef}
+      id="services"
+      className={styles.section}
+      data-snap-section
+      aria-label="Our web design services for East Tennessee small businesses"
+    >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
 
       <div className={styles.headingZone}>
         <h2 className={styles.heading}>Our <em>Services</em></h2>
       </div>
 
-      <div className={styles.list}>
+      <div className={styles.body}>
         {SERVICES.map((s, i) => (
-          <>
-            {/* Subtle divider between row 1 (01,02) and row 2 (03,04) */}
-            {i === 2 && <div key="divider" className={styles.divider} />}
-
-            <div
-              key={s.num}
-              className={[
-                styles.item,
-                s.side === "left" ? styles.itemLeft : styles.itemRight,
-                shown >= i + 1 ? styles.itemVisible : "",
-              ].join(" ")}
-            >
-              {s.side === "left" ? (
-                <>
-                  <div className={styles.iconWrap}>
-                    {icons[s.num as keyof typeof icons]}
-                  </div>
-                  <div className={styles.textBlock}>
-                    <div className={styles.titleRow}>
-                      <span className={styles.title}>{s.label}</span>
-                    </div>
-                    <p className={styles.desc}>{s.desc}</p>
-                  </div>
-                </>
-              ) : (
-                <>
-                  <div className={styles.textBlock}>
-                    <div className={styles.titleRow}>
-                      <span className={styles.title}>{s.label}</span>
-                    </div>
-                    <p className={styles.desc}>{s.desc}</p>
-                  </div>
-                  <div className={styles.iconWrap}>
-                    {icons[s.num as keyof typeof icons]}
-                  </div>
-                </>
-              )}
+          <div
+            key={s.num}
+            className={[styles.item, i % 2 === 1 ? styles.itemRight : "", shown >= i + 1 ? styles.itemVisible : ""].join(" ")}
+          >
+            <div className={styles.iconWrap} aria-hidden="true">
+              {icons[s.num as keyof typeof icons]}
             </div>
-          </>
+            <div className={styles.textBlock}>
+              <h3 className={styles.title}>{s.label}</h3>
+              <p className={styles.desc}>{s.desc}</p>
+            </div>
+          </div>
         ))}
       </div>
 
+      <div className={styles.cta}>
+        <button
+          type="button"
+          className={[styles.ctaPrimary, shown >= 5 ? styles.ctaVisible : ""].join(" ")}
+          aria-label="Contact J Eleven Media to discuss your website project"
+          onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })}
+        >
+          Get in touch →
+        </button>
+      </div>
 
     </section>
   );

@@ -2,9 +2,9 @@ import Nav from "@/components/Nav/Nav";
 import Hero from "@/components/Hero/Hero";
 import OurStoryReveal from "@/components/OurStory/OurStoryReveal";
 import OurServices from "@/components/OurServices/OurServices";
-import ScrollSection from "@/components/ScrollSection/ScrollSection";
 import ScrollContainer from "@/components/ScrollContainer/ScrollContainer";
 import OurWork from "@/components/OurWork/OurWork";
+import Contact from "@/components/Contact/Contact";
 
 export default function Home() {
   return (
@@ -22,9 +22,7 @@ export default function Home() {
 
         <OurWork />
 
-        <ScrollSection id="contact">
-          <h2>Contact <em>Us</em></h2>
-        </ScrollSection>
+        <Contact />
 
       </ScrollContainer>
     </>

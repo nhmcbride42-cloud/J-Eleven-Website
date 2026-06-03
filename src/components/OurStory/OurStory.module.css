@@ -173,8 +173,8 @@
   .midCol {
     border-right: none;
     border-bottom: 1px solid var(--line-2);
-    height: 40vw;
-    padding: 1rem 5vw;
+    height: 65vw;
+    padding: 0;
   }
 
   .rightCol { overflow: visible; }

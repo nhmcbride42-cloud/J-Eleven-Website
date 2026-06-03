@@ -29,12 +29,8 @@ export default function OurWork() {
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setTimeout(() => setShown(1), 200);   // infoCard
-          setTimeout(() => setShown(2), 1200);  // comingSoon
-          setTimeout(() => setShown(3), 1100);  // What Clients Receive
-          setTimeout(() => setShown(4), 1500);  // FAQ
-          setTimeout(() => setShown(5), 1900);  // CTA
-          setTimeout(() => setShown(6), 2400);  // dividers
+          setTimeout(() => setShown(1), 200);
+          setTimeout(() => setShown(2), 1200);
         } else {
           setShown(0);
         }

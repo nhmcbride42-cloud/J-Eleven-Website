@@ -46,3 +46,17 @@
     opacity: 1;
   }
 }
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: auto;
+    height: auto;
+    padding: 6vh 24px 6vh;
+    border-bottom: 1px solid var(--line-2);
+  }
+
+  .heroMotto {
+    font-size: clamp(1.1rem, 4.5vw, 1.4rem);
+    margin-top: 24px;
+  }
+}

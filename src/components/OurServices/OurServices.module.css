@@ -107,34 +107,6 @@
   max-width: 40ch;
 }
 
-.bullets {
-  list-style: none;
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem 1.2rem;
-  margin-top: 4px;
-  flex-wrap: wrap;
-}
-
-.bullet {
-  display: flex;
-  align-items: baseline;
-  gap: 6px;
-}
-
-.bulletDot {
-  font-family: var(--font-cormorant-garamond);
-  font-size: clamp(0.7rem, 0.8vw, 0.84rem);
-  color: var(--clay);
-  flex-shrink: 0;
-}
-
-.bullet span:last-child {
-  font-family: var(--font-cormorant-garamond);
-  font-size: clamp(0.75rem, 0.88vw, 0.92rem);
-  color: var(--ink-faint);
-  line-height: 1.4;
-}
 
 /* ── Bottom CTA ── */
 
@@ -167,17 +139,6 @@
 
 .ctaPrimary:hover { letter-spacing: 0.02em; }
 
-.ctaSecondary {
-  font-family: var(--font-cormorant-garamond);
-  font-size: clamp(0.9rem, 1.1vw, 1.2rem);
-  color: var(--ink-faint);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  opacity: 0;
-  transform: translateY(12px);
-  transition: opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
-              transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-}
 
 .ctaVisible {
   opacity: 1;
@@ -190,7 +151,9 @@
 
   .heading { font-size: clamp(2rem, 8vw, 3rem); }
 
-  .body { gap: 0.6rem; justify-content: flex-start; padding-top: 1rem; }
+  .body { gap: 0.6rem; justify-content: flex-start; padding-top: 1rem; padding-bottom: 0; }
+
+  .cta { padding: 0.6rem 0 0.8rem; }
 
   .item,
   .itemRight {

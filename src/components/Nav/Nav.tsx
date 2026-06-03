@@ -1,16 +1,13 @@
 "use client";
-
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import styles from "./Nav.module.css";
 
 const LOGO_SRC = "/transparent.png";
 
-
 function scrollTo(id: string) {
   const target = document.getElementById(id);
   if (!target) return;
-  // Find the scroll container (first scrollable ancestor or the element itself)
   let el = target.parentElement;
   while (el && el !== document.body) {
     const ov = getComputedStyle(el).overflowY;
@@ -53,37 +50,39 @@ export default function Nav() {
   );
 
   return (
-    <nav className={styles.nav}>
-      <div className={styles.navInner}>
-        <Link href="/" className={styles.brand}>
-          <img src={LOGO_SRC} alt="J Eleven Media logo" />
-        </Link>
+    <>
+      {/* Fills the notch/status bar area on iOS Safari with the nav color */}
+      <div className={styles.safeAreaBar} />
 
-        <ul className={styles.navLinks}>
-          <li>{nav("story-reveal", "Our Story")}</li>
-          <li>{nav("services", "Our Services")}</li>
-          <li>{nav("work", "Our Work")}</li>
-          <li>{nav("contact", "Contact Us")}</li>
-        </ul>
-
-        <button
-          className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
-          onClick={() => setMenuOpen((o) => !o)}
-          aria-label="Open menu"
-          aria-expanded={menuOpen}
-        >
-          <span />
-          <span />
-          <span />
-        </button>
-      </div>
-
-      <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
-        {nav("story-reveal", "Our Story", true)}
-        {nav("services", "Our Services", true)}
-        {nav("work", "Our Work", true)}
-        {nav("contact", "Contact Us", true)}
-      </div>
-    </nav>
+      <nav className={styles.nav}>
+        <div className={styles.navInner}>
+          <Link href="/" className={styles.brand}>
+            <img src={LOGO_SRC} alt="J Eleven Media logo" />
+          </Link>
+          <ul className={styles.navLinks}>
+            <li>{nav("story-reveal", "Our Story")}</li>
+            <li>{nav("services", "Our Services")}</li>
+            <li>{nav("work", "Our Work")}</li>
+            <li>{nav("contact", "Contact Us")}</li>
+          </ul>
+          <button
+            className={`${styles.burger} ${menuOpen ? styles.burgerOpen : ""}`}
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Open menu"
+            aria-expanded={menuOpen}
+          >
+            <span />
+            <span />
+            <span />
+          </button>
+        </div>
+        <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
+          {nav("story-reveal", "Our Story", true)}
+          {nav("services", "Our Services", true)}
+          {nav("work", "Our Work", true)}
+          {nav("contact", "Contact Us", true)}
+        </div>
+      </nav>
+    </>
   );
 }

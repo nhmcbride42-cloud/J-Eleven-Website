@@ -107,7 +107,7 @@ export default function OurWork() {
                 <div className={styles.monitorBody}>
                   <div className={styles.monitorScreen}>
                     <div className={styles.imgPlaceholder}>
-                      <span>Desktop Screenshot</span>
+                      <img src="/tidwellexample.png" alt="Misty Tidwell website desktop" />
                     </div>
                   </div>
                 </div>

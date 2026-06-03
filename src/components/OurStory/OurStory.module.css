@@ -154,16 +154,16 @@
     border-bottom: none;
     height: 120vw;
     padding: 0;
-    align-items: flex-start;
+    overflow: hidden;
   }
   .photoFrame {
     height: 100%;
-    align-items: flex-start;
+    overflow: hidden;
   }
   .familyPhoto {
     border-radius: 0;
     width: 100%;
-    height: 100%;
+    height: 140%;
     object-fit: cover;
     object-position: center top;
   }

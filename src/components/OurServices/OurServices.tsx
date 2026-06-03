@@ -57,7 +57,7 @@ const SERVICES = [
   { num: "02", label: "Maintenance Plans",        desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again." },
   { num: "03", label: "Domain Management",        desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details." },
   { num: "04", label: "Advanced SEO",             desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen." },
-  { num: "05", label: "Custom Design & Branding", desc: "" },
+  { num: "05", label: "Custom Design & Branding", desc: "Using your brand vision, we build you a fully custom website to elevate your brand identity." },
 ];
 
 export default function OurServices() {

@@ -96,7 +96,6 @@ export default function RootLayout({
     <html lang="en" className={`${bodoni.variable} ${cormorant.variable} ${hanken.variable} ${playfair.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-        <meta name="theme-color" content="#5d473d" media="(max-width: 768px)" />
         <meta name="theme-color" content="#e7e4dd" />
       </head>
       <body>{children}</body>

@@ -88,7 +88,7 @@ export default function OurStoryReveal() {
               <div className={styles.icon} />
               <h3 className={styles.pillarTitle}>Our Values</h3>
               <p className={styles.pillarBody}>
-                As a family-owned business, we believe relationships matter more than transactions. We operate with integrity. We strive to be transparent, honest and communicative in everything we do.
+                As a family-owned business, we believe relationships matter more than transactions. We operate with integrity, striving to be transparent, honest and communicative in everything we do.
               </p>
             </div>
 

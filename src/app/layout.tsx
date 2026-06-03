@@ -35,7 +35,7 @@ const hanken = Hanken_Grotesk({
 
 export const metadata: Metadata = {
   title: {
-    default: "J Eleven Media | Web Design & SEO — Lenoir City, TN",
+    default: "J Eleven Media | East Tennessee Web Design",
     template: "%s | J Eleven Media",
   },
   description:
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.jelevenmedia.com",
     siteName: "J Eleven Media",
-    title: "J Eleven Media | Web Design & SEO — Lenoir City, TN",
+    title: "J Eleven Media | East Tennessee Web Design",
     description:
       "Custom websites, maintenance plans, and local SEO for small businesses in Lenoir City, Knoxville, and East Tennessee.",
     images: [
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "J Eleven Media | Web Design — Lenoir City, TN",
+    title: "J Eleven Media | East Tennessee Web Design",
     description:
       "Custom websites and local SEO for small businesses across East Tennessee.",
     images: ["/og-image.jpg"],

@@ -11,8 +11,6 @@
   width: min(1000px, 90vw);
   height: auto;
   display: block;
-  opacity: 0;
-  animation: heroIn 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) 0.15s forwards;
 }
 @keyframes heroIn {
   from {

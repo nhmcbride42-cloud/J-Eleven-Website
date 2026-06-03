@@ -137,7 +137,7 @@ export default function OurWork() {
             <div className={styles.reviewBottom}>
               <span className={styles.reviewer}>— Misty Tidwell</span>
               
-                href="https://mistytidwell.com"
+                <a href="https://mistytidwell.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.viewWork}

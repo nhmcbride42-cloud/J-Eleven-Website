@@ -17,6 +17,8 @@
 }
 html {
   scroll-behavior: smooth;
+  /* Chrome on Android */
+  color-scheme: light;
 }
 body {
   background: var(--paper);

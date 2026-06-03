@@ -173,7 +173,7 @@
   flex-shrink: 0;
 }
 
-/* ── Device showcase: two equal halves ── */
+/* ── Device showcase ── */
 
 .showcase {
   flex: 1;
@@ -419,15 +419,13 @@
   color: var(--clay);
 }
 
-/* ── Right: process panel (no card) ── */
+/* ── Right: process panel ── */
 
 .processCard {
   display: flex;
   flex-direction: column;
   overflow: hidden;
 }
-
-/* ── Top row: two columns ── */
 
 .processTopRow {
   display: flex;
@@ -505,7 +503,6 @@
   flex-shrink: 0;
   margin-bottom: 4px;
 }
-
 
 /* ── Timeline ── */
 
@@ -695,8 +692,31 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .section {
+    height: auto;
+    overflow: visible;
+    scroll-snap-align: none;
+  }
   .headingZone { padding: 1rem 5vw; }
   .heading { font-size: clamp(2rem, 8vw, 3rem); }
+
+  .infoCard,
+  .processCol,
+  .faqSection,
+  .cta,
+  .comingSoon,
+  .processColDivider,
+  .processDivider {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 
   .layout {
     grid-template-columns: 1fr;

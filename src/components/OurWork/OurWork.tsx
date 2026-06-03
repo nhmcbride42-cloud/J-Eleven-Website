@@ -94,7 +94,7 @@ export default function OurWork() {
                   <div className={styles.phoneIsland} />
                   <div className={styles.phoneScreen}>
                     <div className={styles.imgPlaceholder}>
-                      <span>Mobile Screenshot</span>
+                      <img src="/mistymobile.jpg" alt="Misty Tidwell mobile version" />
                     </div>
                   </div>
                   <div className={styles.phoneBar} />

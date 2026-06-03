@@ -148,7 +148,7 @@
     transform: none !important;
     opacity: 1 !important;
     transition: none !important;
-    border-radius: 20px;
+    border-radius: 30px;
   }
   .itemRight {
     width: 90%;
@@ -159,7 +159,7 @@
     transform: none !important;
     opacity: 1 !important;
     transition: none !important;
-    border-radius: 20px;
+    border-radius: 30px;
   }
   .itemVisible {
     transform: none !important;

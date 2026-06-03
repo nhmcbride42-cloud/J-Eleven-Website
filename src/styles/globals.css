@@ -46,3 +46,15 @@ body::after {
   background: var(--clay);
   color: var(--paper);
 }
+
+@media (max-width: 768px) {
+  :root { --nav-h: 60px; }
+
+  /* Sections: switch from fixed viewport height to auto on mobile */
+  [data-snap-section] {
+    height: auto !important;
+    min-height: calc(100dvh - var(--nav-h));
+    scroll-snap-align: none;
+    overflow: visible !important;
+  }
+}

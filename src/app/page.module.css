@@ -4,3 +4,9 @@
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
 }
+
+@media (max-width: 768px) {
+  .main {
+    scroll-snap-type: none;
+  }
+}

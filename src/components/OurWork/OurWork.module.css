@@ -692,3 +692,34 @@
 .ctaArrow {
   font-size: 1rem;
 }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .headingZone { padding: 1rem 5vw; }
+  .heading { font-size: clamp(2rem, 8vw, 3rem); }
+
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 0 5vw 2vh;
+    overflow-y: auto;
+    gap: 1rem;
+  }
+
+  .infoCard { border-radius: 14px; }
+
+  .pillars { flex-direction: column; }
+  .pillarDivider { width: 100%; height: 1px; margin: 0; }
+
+  .showcase { grid-template-columns: 1fr; }
+  .showcaseHalf:first-child {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    max-height: 220px;
+  }
+
+  .phone { max-height: 180px; }
+  .monitor { max-width: 280px; }
+
+  .comingSoon { min-height: 160px; }
+  .comingSoonText { font-size: clamp(2rem, 8vw, 3rem); }
+}

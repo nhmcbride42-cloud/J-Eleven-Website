@@ -150,3 +150,42 @@
   background: var(--line);
   flex-shrink: 0;
 }
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .headingZone { padding: 1rem 5vw; }
+  .heading { font-size: clamp(2rem, 8vw, 3rem); }
+
+  .layout { overflow-y: auto; }
+
+  .inner {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+    overflow-y: auto;
+  }
+
+  .leftCol {
+    border-right: none;
+    border-bottom: 1px solid var(--line-2);
+    padding: 1rem 5vw;
+  }
+
+  .midCol {
+    border-right: none;
+    border-bottom: 1px solid var(--line-2);
+    height: 40vw;
+    padding: 1rem 5vw;
+  }
+
+  .rightCol { overflow: visible; }
+
+  .pillar {
+    transform: translateY(20px);
+    padding: 1rem 5vw;
+  }
+
+  .pillarVisible { transform: translateY(0); }
+
+  .pillarTitle { font-size: clamp(1.2rem, 5vw, 1.5rem); }
+  .pillarBody { font-size: 0.95rem; }
+}

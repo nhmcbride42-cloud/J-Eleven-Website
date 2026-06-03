@@ -55,6 +55,10 @@ export const metadata: Metadata = {
   creator: "J Eleven Media",
   metadataBase: new URL("https://www.jelevenmedia.com"),
   alternates: { canonical: "/" },
+  icons: {
+    icon: "/transparent.png",
+    apple: "/transparent.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",

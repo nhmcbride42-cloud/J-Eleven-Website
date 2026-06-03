@@ -98,7 +98,7 @@ export default function Contact() {
             <span className={styles.infoLabel}>Follow Us</span>
             <div className={styles.socials}>
               <a
-                href="https://www.facebook.com/jelevenmedia"
+                href="https://www.facebook.com/profile.php?id=61585042963260"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}
@@ -110,7 +110,7 @@ export default function Contact() {
                 Facebook
               </a>
               <a
-                href="https://www.instagram.com/jelevenmedia"
+                href="https://www.instagram.com/jelevenmedia/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className={styles.socialLink}

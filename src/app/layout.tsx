@@ -9,7 +9,6 @@ const bodoni = Bodoni_Moda({
   variable: "--font-bodoni-moda",
   display: "swap",
 });
-
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -17,7 +16,6 @@ const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant-garamond",
   display: "swap",
 });
-
 const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -25,7 +23,6 @@ const playfair = Playfair_Display({
   variable: "--font-playfair-display",
   display: "swap",
 });
-
 const hanken = Hanken_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -97,6 +94,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${bodoni.variable} ${cormorant.variable} ${hanken.variable} ${playfair.variable}`}>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+        <meta name="theme-color" content="#5d473d" media="(max-width: 768px)" />
+        <meta name="theme-color" content="#e7e4dd" />
+      </head>
       <body>{children}</body>
     </html>
   );

@@ -8,8 +8,8 @@ export default function Hero() {
         src="/big-logo.jpg"
         alt="J Eleven Media"
         className={styles.wordmark}
-        width={1000}
-        height={300}
+        width={2000}
+        height={577}
         priority
       />
       <p className={styles.heroMotto}>

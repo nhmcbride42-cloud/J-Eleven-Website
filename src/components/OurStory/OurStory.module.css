@@ -157,15 +157,19 @@
     overflow: hidden;
   }
   .photoFrame {
+    position: relative;
     height: 100%;
     overflow: hidden;
   }
   .familyPhoto {
     border-radius: 0;
+    position: absolute;
+    top: -10%;
+    left: 0;
     width: 100%;
-    height: 160%;
+    height: 140%;
     object-fit: cover;
-    object-position: center -5%;
+    object-position: center top;
   }
   .rightCol {
     overflow: visible;

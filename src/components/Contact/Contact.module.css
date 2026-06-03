@@ -29,10 +29,6 @@
   grid-template-columns: 1fr 1.4fr;
   gap: 4vw;
   padding-bottom: 2vh;
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 1.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-              transform 1.4s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .bodyVisible {
   opacity: 1;

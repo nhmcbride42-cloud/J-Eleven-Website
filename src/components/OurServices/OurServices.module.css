@@ -6,14 +6,12 @@
   overflow: hidden;
   padding: 0 6vw;
 }
-
 .headingZone {
   flex-shrink: 0;
   display: flex;
   align-items: center;
   padding: 1.2rem 0;
 }
-
 .heading {
   font-family: var(--font-cormorant-garamond);
   font-weight: 400;
@@ -22,11 +20,7 @@
   color: #5d473d;
   letter-spacing: -0.01em;
 }
-
 .heading em { font-style: normal; }
-
-/* ── Service card list ── */
-
 .body {
   flex: 1;
   min-height: 0;
@@ -35,7 +29,6 @@
   justify-content: center;
   gap: clamp(0.15rem, 0.25vw, 0.3rem);
 }
-
 .item {
   display: flex;
   align-items: flex-start;
@@ -51,24 +44,19 @@
   width: 40%;
   align-self: flex-start;
 }
-
-/* Even cards: right side, slide from right */
 .itemRight {
   align-self: flex-end;
   transform: translateX(60px);
   flex-direction: row-reverse;
   margin-right: 10%;
 }
-
 .item:not(.itemRight) {
   margin-left: 10%;
 }
-
 .itemVisible {
   opacity: 1;
   transform: translateX(0);
 }
-
 .iconWrap {
   width: clamp(44px, 5vw, 64px);
   height: clamp(44px, 5vw, 64px);
@@ -82,13 +70,11 @@
   padding: 12px;
   margin-top: 2px;
 }
-
 .textBlock {
   display: flex;
   flex-direction: column;
   gap: 3px;
 }
-
 .title {
   font-family: var(--font-playfair-display);
   font-size: clamp(1.4rem, 2.2vw, 2.6rem);
@@ -97,7 +83,6 @@
   color: var(--ink);
   letter-spacing: -0.01em;
 }
-
 .desc {
   font-family: var(--font-playfair-display);
   font-size: clamp(0.82rem, 0.95vw, 1rem);
@@ -106,10 +91,6 @@
   color: var(--ink-faint);
   max-width: 40ch;
 }
-
-
-/* ── Bottom CTA ── */
-
 .cta {
   flex-shrink: 0;
   display: flex;
@@ -119,7 +100,6 @@
   padding: 1.2rem 0 1.6rem;
   border-top: 1px solid var(--line-2);
 }
-
 .ctaPrimary {
   font-family: var(--font-cormorant-garamond);
   font-size: clamp(1rem, 1.3vw, 1.5rem);
@@ -136,10 +116,7 @@
               transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1),
               letter-spacing 0.2s ease;
 }
-
 .ctaPrimary:hover { letter-spacing: 0.02em; }
-
-
 .ctaVisible {
   opacity: 1;
   transform: translateY(0);
@@ -147,32 +124,52 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
-  .section { padding: 0 5vw; }
-
-  .heading { font-size: clamp(2rem, 8vw, 3rem); }
-
-  .body { gap: 0.6rem; justify-content: flex-start; padding-top: 1rem; padding-bottom: 0; }
-
-  .cta { padding: 0.6rem 0 0.8rem; }
-
-  .item,
-  .itemRight {
+  .section {
+    height: auto;
+    overflow: visible;
+    scroll-snap-align: none;
+    padding: 0 5vw;
+  }
+  .heading {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+  .body {
+    gap: 0.6rem;
+    justify-content: flex-start;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .item {
     width: 90%;
-    align-self: center;
-    flex-direction: row;
-    margin-left: 0;
-    margin-right: 0;
-    transform: translateY(30px);
+    align-self: center !important;
+    flex-direction: row !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
     border-radius: 20px;
   }
-
-  .itemVisible { transform: translateY(0); }
-
+  .itemRight {
+    width: 90%;
+    align-self: center !important;
+    flex-direction: row !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    border-radius: 20px;
+  }
+  .itemVisible {
+    transform: none !important;
+  }
   .title { font-size: clamp(1.2rem, 5vw, 1.6rem); }
-
   .desc { font-size: 0.9rem; max-width: none; }
-
   .iconWrap { width: 40px; height: 40px; padding: 9px; }
-
-  .cta { padding: 1rem 0 1.2rem; gap: 1.5rem; }
+  .cta {
+    border-top: none;
+    padding: 1rem 0 1.2rem;
+    gap: 1.5rem;
+  }
 }

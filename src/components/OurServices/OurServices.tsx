@@ -42,13 +42,22 @@ const icons = {
       <polyline points="22,15 26,15 26,19"/>
     </svg>
   ),
+  "05": (
+    <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M8 40 L14 34 L34 14 L38 10 L40 12 L20 32 L14 38 Z"/>
+      <line x1="30" y1="18" x2="36" y2="12"/>
+      <circle cx="10" cy="38" r="3"/>
+      <path d="M6 42 Q8 36 14 38"/>
+    </svg>
+  ),
 };
 
 const SERVICES = [
-  { num: "01", label: "Website Development", desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out." },
-  { num: "02", label: "Maintenance Plans",   desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again." },
-  { num: "03", label: "Domain Management",   desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details." },
-  { num: "04", label: "Advanced SEO",        desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen." },
+  { num: "01", label: "Website Development",     desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out." },
+  { num: "02", label: "Maintenance Plans",        desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again." },
+  { num: "03", label: "Domain Management",        desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details." },
+  { num: "04", label: "Advanced SEO",             desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen." },
+  { num: "05", label: "Custom Design & Branding", desc: "" },
 ];
 
 export default function OurServices() {
@@ -67,8 +76,8 @@ export default function OurServices() {
       setTimeout(() => setShown(2), 600);
       setTimeout(() => setShown(3), 1000);
       setTimeout(() => setShown(4), 1400);
-      setTimeout(() => setShown(5), 1900);
-      setTimeout(() => setShown(6), 2300);
+      setTimeout(() => setShown(5), 1800);
+      setTimeout(() => setShown(6), 2200);
     };
 
     const check = () => {
@@ -137,14 +146,18 @@ export default function OurServices() {
         {SERVICES.map((s, i) => (
           <div
             key={s.num}
-            className={[styles.item, i % 2 === 1 ? styles.itemRight : "", shown >= i + 1 ? styles.itemVisible : ""].join(" ")}
+            className={[
+              styles.item,
+              i % 2 === 1 ? styles.itemRight : "",
+              shown >= i + 1 ? styles.itemVisible : "",
+            ].join(" ")}
           >
             <div className={styles.iconWrap} aria-hidden="true">
               {icons[s.num as keyof typeof icons]}
             </div>
             <div className={styles.textBlock}>
               <h3 className={styles.title}>{s.label}</h3>
-              <p className={styles.desc}>{s.desc}</p>
+              {s.desc && <p className={styles.desc}>{s.desc}</p>}
             </div>
           </div>
         ))}
@@ -153,7 +166,7 @@ export default function OurServices() {
       <div className={styles.cta}>
         <button
           type="button"
-          className={[styles.ctaPrimary, shown >= 5 ? styles.ctaVisible : ""].join(" ")}
+          className={[styles.ctaPrimary, shown >= 6 ? styles.ctaVisible : ""].join(" ")}
           aria-label="Contact J Eleven Media to discuss your website project"
           onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth", block: "start" })}
         >

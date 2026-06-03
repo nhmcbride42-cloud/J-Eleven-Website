@@ -141,7 +141,7 @@
 
 .mobileMenu a,
 .mobileMenu button {
-  font-family: var(--sans);
+  font-family: var(--font-playfair-display);
   text-decoration: none;
   color: var(--ink);
   font-size: 0.9rem;

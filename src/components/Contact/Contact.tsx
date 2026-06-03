@@ -7,6 +7,7 @@ export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const [shown, setShown] = useState(false);
   const [sent, setSent] = useState(false);
+  const [sending, setSending] = useState(false);
   const [form, setForm] = useState({ name: "", email: "", phone: "", message: "" });
 
   useEffect(() => {
@@ -35,6 +36,8 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (sending || sent) return;
+    setSending(true);
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
@@ -43,13 +46,17 @@ export default function Contact() {
       });
       if (res.ok) {
         setSent(true);
+        setSending(false);
         setTimeout(() => {
           setSent(false);
           setForm({ name: "", email: "", phone: "", message: "" });
-        }, 3000);
+        }, 4000);
+      } else {
+        setSending(false);
       }
     } catch (err) {
       console.error("Submit error:", err);
+      setSending(false);
     }
   };
 
@@ -166,8 +173,8 @@ export default function Contact() {
                 onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
               />
             </div>
-            <button type="submit" className={styles.submit} disabled={sent}>
-              {sent ? "Message sent!" : "Send message →"}
+            <button type="submit" className={styles.submit} disabled={sent || sending}>
+              {sent ? "Message sent!" : sending ? "Sending..." : "Send message →"}
             </button>
           </form>
         </div>

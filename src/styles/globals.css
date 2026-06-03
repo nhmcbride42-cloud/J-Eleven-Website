@@ -10,17 +10,14 @@
   --sans: var(--font-hanken-grotesk), 'Helvetica Neue', Arial, sans-serif;
   --nav-h: 80px;
 }
-
 *, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 html {
   scroll-behavior: smooth;
 }
-
 body {
   background: var(--paper);
   color: var(--ink);
@@ -30,7 +27,6 @@ body {
   position: relative;
   min-height: 100vh;
 }
-
 body::after {
   content: "";
   position: fixed;
@@ -41,19 +37,15 @@ body::after {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='150'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
   mix-blend-mode: multiply;
 }
-
 ::selection {
   background: var(--clay);
   color: var(--paper);
 }
-
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
-
-  /* Sections: switch from fixed viewport height to auto on mobile */
   [data-snap-section] {
     height: auto !important;
-    min-height: calc(100dvh - var(--nav-h));
+    min-height: auto;
     scroll-snap-align: none;
     overflow: visible !important;
   }

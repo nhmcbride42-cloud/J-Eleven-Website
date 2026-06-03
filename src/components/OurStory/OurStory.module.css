@@ -154,13 +154,18 @@
     border-bottom: none;
     height: 120vw;
     padding: 0;
+    align-items: flex-start;
+  }
+  .photoFrame {
+    height: 100%;
+    align-items: flex-start;
   }
   .familyPhoto {
     border-radius: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 0%;
+    object-position: center top;
   }
   .rightCol {
     overflow: visible;

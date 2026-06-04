@@ -22,6 +22,32 @@
     transform: translateY(0);
   }
 }
+.divider {
+    width: 60px;
+    height: 1px;
+    background: var(--line-2);
+    margin: 40px auto 32px;
+    opacity: 0;
+    animation: fade 1s ease 1s forwards;
+}
+
+.cta {
+    font-family: var(--font-playfair-display);
+      font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--clay);
+  text-decoration: none;
+  opacity: 0;
+  animation: fade 1s ease 1.2s forwards;
+  transition: letter-spacing 0.2s ease;
+}
+
+.cta:hover {
+  letter-spacing: 0.14em;
+}
+    
 .heroMotto {
   margin-top: 40px;
   max-width: 50ch;
@@ -46,17 +72,6 @@
     min-height: auto;
     padding: 6vh 24px 4vh;
     position: relative;
-  }
-  .hero::after {
-    content: '';
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40%;
-    height: 1px;
-    background: var(--line-2);
   }
   .heroMotto {
     font-size: clamp(1.1rem, 4.5vw, 1.4rem);

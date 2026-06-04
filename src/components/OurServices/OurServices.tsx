@@ -53,11 +53,10 @@ const icons = {
 };
 
 const SERVICES = [
-  { num: "01", label: "Website Development",     desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out." },
-  { num: "02", label: "Maintenance Plans",        desc: "Monthly maintenance, updates, and support so you don't have to worry about your website again." },
-  { num: "03", label: "Domain Management",        desc: "Whether you already have a domain or need to set one up for the first time, we handle all the details." },
-  { num: "04", label: "Advanced SEO",             desc: "We perform in-depth keyword research and create a custom content strategy to get your website seen." },
-  { num: "05", label: "Custom Design & Branding", desc: "Using your brand vision, we build you a fully custom website to elevate your brand identity." },
+  { num: "01", label: "Web Development",     desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out. Sites starting at $1,000" },
+  { num: "02", label: "Maintenance Plans",        desc: "We offer monthly maintenance, content updates, security monitoring, and more to ensure your website stays updated" },
+  { num: "03", label: "Website Hosting",        desc: "All website hosting and domain management is handled by us, so there's one less thing for you to worry about" },
+  { num: "04", label: "Advanced SEO",             desc: "In-depth research done into your brand and niche so we can optimize your website to attract the right customers" },
 ];
 
 export default function OurServices() {

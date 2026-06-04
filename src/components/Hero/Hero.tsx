@@ -16,6 +16,10 @@ export default function Hero() {
         At J Eleven, we take on your vision like it's our own and help you
         achieve the online presence you deserve.
       </p>
+      <div className={styles.divider} />
+      <a href="#contact" className={styles.cta}>
+        Get started today →
+      </a>
     </div>
   );
 }

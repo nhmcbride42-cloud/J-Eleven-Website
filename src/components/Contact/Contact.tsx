@@ -39,11 +39,15 @@ export default function Contact() {
     if (sending || sent) return;
     setSending(true);
     try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
+        signal: controller.signal,
       });
+      clearTimeout(timeout);
       if (res.ok) {
         setSent(true);
         setSending(false);

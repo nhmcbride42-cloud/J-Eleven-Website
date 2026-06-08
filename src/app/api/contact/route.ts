@@ -13,7 +13,6 @@ export async function POST(req: Request) {
     const result = await resend.emails.send({
       from: "J Eleven Media <hello@jelevenmedia.com>",
       to: "haydenmcbride@jelevenmedia.com",
-      replyTo: email,
       subject: `New inquiry from ${name}`,
       html: `<!DOCTYPE html>
 <html lang="en">

@@ -35,9 +35,7 @@
     font-family: var(--font-playfair-display);
       font-size: clamp(0.95rem, 1.4vw, 1.2rem);
   font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--clay);
+  letter-spacing: 0.08em;  color: var(--clay);
   text-decoration: none;
   opacity: 0;
   animation: fade 1s ease 1.2s forwards;

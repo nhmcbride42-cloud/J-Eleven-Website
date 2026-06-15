@@ -44,10 +44,14 @@ const icons = {
   ),
   "05": (
     <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M8 40 L14 34 L34 14 L38 10 L40 12 L20 32 L14 38 Z"/>
-      <line x1="30" y1="18" x2="36" y2="12"/>
-      <circle cx="10" cy="38" r="3"/>
-      <path d="M6 42 Q8 36 14 38"/>
+      <line x1="8" y1="40" x2="8" y2="10"/>
+      <line x1="8" y1="40" x2="42" y2="40"/>
+      <polyline points="10,36 18,28 26,30 36,18 42,12"/>
+      <circle cx="10" cy="36" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="18" cy="28" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="26" cy="30" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="36" cy="18" r="1.8" fill="currentColor" stroke="none"/>
+      <circle cx="42" cy="12" r="1.8" fill="currentColor" stroke="none"/>
     </svg>
   ),
 };
@@ -57,6 +61,7 @@ const SERVICES = [
   { num: "02", label: "Maintenance Plans",        desc: "We offer monthly maintenance, content updates, security monitoring, and more to ensure your website stays updated" },
   { num: "03", label: "Website Hosting",        desc: "All website hosting and domain management is handled by us, so there's one less thing for you to worry about" },
   { num: "04", label: "Advanced SEO",             desc: "In-depth research done into your brand and niche so we can optimize your website to attract the right customers" },
+  { num: "05", label: "Social Media Growth", desc: "We provide you with a social media toolkit containing strategies, content creation, and scheduling so you can hit the ground running"}
 ];
 
 export default function OurServices() {
@@ -147,7 +152,7 @@ export default function OurServices() {
             key={s.num}
             className={[
               styles.item,
-              i % 2 === 1 ? styles.itemRight : "",
+              i % 2 === 1 ? styles.itemRight : styles.itemLeft,
               shown >= i + 1 ? styles.itemVisible : "",
             ].join(" ")}
           >

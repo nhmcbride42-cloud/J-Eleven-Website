@@ -94,8 +94,9 @@ export default function OurWork() {
                       <Image
                         src="/mistymobile.jpg"
                         alt="Misty Tidwell mobile version"
-                        width={71}
-                        height={135}
+                        fill
+                        unoptimized
+                        style={{ objectFit: "fill" }}
                       />
                     </div>
                   </div>
@@ -111,8 +112,9 @@ export default function OurWork() {
                       <Image
                         src="/tidwellexample.png"
                         alt="Misty Tidwell website desktop"
-                        width={279}
-                        height={151}
+                        fill
+                        unoptimized
+                        style={{ objectFit: "fill", objectPosition: "top" }}
                       />
                     </div>
                   </div>
@@ -149,10 +151,6 @@ export default function OurWork() {
 
         </div>
 
-        {/* ── Right: coming soon ── */}
-        <div className={`${styles.comingSoon} ${s(1)}`}>
-          <p className={styles.comingSoonText}>More Projects<br /><em>Coming Soon</em></p>
-        </div>
 
       </div>
     </section>

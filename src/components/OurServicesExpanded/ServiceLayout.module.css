@@ -1,0 +1,253 @@
+.page {
+  background: var(--paper);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Hero ── */
+.hero {
+  background: #5d473d;
+  min-height: 28vh;
+  display: flex;
+  align-items: center;
+}
+
+.heroLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: clamp(2rem, 6vw, 5rem);
+}
+
+.motto {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(1rem, 1.3vw, 1.2rem);
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(231, 228, 221, 0.6);
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.heroTitle {
+  font-family: var(--font-playfair-display);
+  font-size: clamp(2.2rem, 4vw, 4rem);
+  font-weight: 500;
+  color: #e7e4dd;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+
+/* ── Body ── */
+.body {
+  display: grid;
+  grid-template-columns: .6fr .5fr;
+  gap: 2vw;
+  padding: clamp(2rem, 5vh, 4rem) clamp(1.5rem, 20vw, 20rem);
+  flex: 1;
+}
+
+/* ── About ── */
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.aboutHeading {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+}
+
+.divider {
+  width: 48px;
+  height: 1px;
+  background: var(--line-2);
+  margin: 0.5rem 0;
+}
+
+.aboutText {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
+  font-style: italic;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+/* ── Packages ── */
+.packages {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.package {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.2rem 1.4rem;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: border-color 0.2s ease;
+}
+
+.package:hover {
+  border-color: var(--clay);
+}
+
+.packageFeatured {
+  border-color: var(--clay);
+  background: #fff;
+}
+
+.packageHeader {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.packageName {
+  font-family: var(--font-playfair-display);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.packagePrice {
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  font-style: italic;
+  color: var(--clay);
+  white-space: nowrap;
+}
+
+.featureList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-cormorant-garamond);
+  font-size: clamp(0.9rem, 1.05vw, 1.05rem);
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.check {
+  color: var(--clay);
+  font-size: 0.78rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+/* ── Bottom ── */
+.bottom {
+  border-top: 1px solid var(--line-2);
+  padding: clamp(1.5rem, 3vh, 2.5rem) clamp(1.5rem, 6vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.ctaRow {
+  border-top: 1px solid var(--line-2);
+  padding: clamp(1.5rem, 3vh, 2.5rem) 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ctaBtn {
+  font-family: var(--font-playfair-display);
+  font-size: clamp(0.95rem, 1.4vw, 1.2rem);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--clay);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: letter-spacing 0.2s ease;
+}
+
+.ctaBtn:hover {
+  letter-spacing: 0.14em;
+}
+
+.serviceNav {
+  display: flex;
+  justify-content: center;
+  padding: 0.9rem 1.5rem;
+  border-bottom: 1px solid var(--line-2);
+  background: var(--paper);
+}
+
+.serviceLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0;
+}
+
+.serviceLinkWrap {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  font-family: var(--font-cormorant-garamond);
+  color: var(--ink-faint);
+  font-size: 1.1rem;
+  margin: 0 1rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.serviceLink {
+  font-family: var(--font-playfair-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  text-decoration: none;
+  opacity: 0.55;
+  font-weight: 400;
+  transition: opacity 0.15s ease;
+}
+
+.serviceLink:hover {
+  opacity: 1;
+}
+
+.serviceLinkActive {
+  opacity: 1;
+  font-weight: 700;
+}
+
+/* ── Mobile ── */
+@media (max-width: 768px) {
+  .body {
+    grid-template-columns: 1fr;
+    padding: 2rem 1.5rem;
+    gap: 2rem;
+  }
+
+  .aboutText {
+    max-width: none;
+  }
+
+  .serviceLinks {
+    gap: 1.4rem;
+  }
+}

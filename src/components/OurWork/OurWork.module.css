@@ -742,10 +742,10 @@
   .showcaseHalf:first-child {
     border-right: none;
     border-bottom: 1px solid var(--line);
-    max-height: 220px;
+    height: 220px;
   }
 
-  .phone { max-height: 180px; }
+  .phone { height: 180px; max-height: 180px; }
   .monitor { max-width: 280px; }
 
   .comingSoon { min-height: 160px; }

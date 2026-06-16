@@ -33,6 +33,12 @@
   gap: 38px;
   justify-content: center;
   list-style: none;
+  align-self: stretch;
+}
+
+.navLinks li {
+  display: flex;
+  align-items: center;
 }
 .navLinks a,
 .navLinkBtn {
@@ -146,6 +152,82 @@
   font-family: var(--font-playfair-display) !important;
   font-weight: 500 !important;
   padding: 15px 24px !important;
+}
+
+/* ── Mobile services expand ── */
+.mobileServicesBtn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  opacity: 0.72;
+}
+
+.mobileServicesExpanded {
+  display: flex;
+  flex-direction: column;
+  background: rgba(27, 24, 20, 0.04);
+}
+
+.mobileServiceLink {
+  font-family: var(--font-playfair-display);
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 14px 28px 14px 42px;
+  border-top: 1px solid var(--line);
+  opacity: 0.75;
+}
+
+.mobileServiceLink:hover {
+  opacity: 1;
+}
+
+/* ── Services dropdown ── */
+.dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownMenu {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--paper);
+  border: 1px solid var(--line-2);
+  border-top: none;
+  border-radius: 0 0 12px 12px;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 200px;
+  box-shadow: none;
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.dropdown:hover .dropdownMenu {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.dropdownMenu a {
+  font-family: var(--font-playfair-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  color: var(--ink);
+  text-decoration: none;
+  padding: 10px 20px;
+  opacity: 0.72;
+  transition: opacity 0.2s;
+}
+
+.dropdownMenu a:hover {
+  opacity: 1;
 }
 
 /* ── Safe area bar (notch/status bar) ── */

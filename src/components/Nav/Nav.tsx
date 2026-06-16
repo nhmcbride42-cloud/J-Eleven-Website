@@ -2,7 +2,16 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import styles from "./Nav.module.css";
+
+const SERVICE_LINKS = [
+  { label: "Web Development", href: "/services/web-development" },
+  { label: "Maintenance",     href: "/services/maintenance" },
+  { label: "Hosting",         href: "/services/hosting" },
+  { label: "SEO",             href: "/services/seo" },
+  { label: "Social Media",    href: "/services/social-media" },
+];
 
 function scrollTo(id: string) {
   const target = document.getElementById(id);
@@ -21,6 +30,9 @@ function scrollTo(id: string) {
 
 export default function Nav() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onResize = () => {
@@ -38,15 +50,20 @@ export default function Nav() {
     return () => document.removeEventListener("keydown", onKey);
   }, []);
 
-  const nav = (id: string, label: string, close = false) => (
-    <button
-      type="button"
-      className={styles.navLinkBtn}
-      onClick={() => { scrollTo(id); if (close) setMenuOpen(false); }}
-    >
-      {label}
-    </button>
-  );
+  const nav = (id: string, label: string, close = false) =>
+    isHome ? (
+      <button
+        type="button"
+        className={styles.navLinkBtn}
+        onClick={() => { scrollTo(id); if (close) setMenuOpen(false); }}
+      >
+        {label}
+      </button>
+    ) : (
+      <Link href={`/#${id}`} className={styles.navLinkBtn} onClick={() => { if (close) setMenuOpen(false); }}>
+        {label}
+      </Link>
+    );
 
   return (
     <>
@@ -63,7 +80,16 @@ export default function Nav() {
           </Link>
           <ul className={styles.navLinks}>
             <li>{nav("story-reveal", "Our Story")}</li>
-            <li>{nav("services", "Our Services")}</li>
+            <li className={styles.dropdown}>
+              <button type="button" className={styles.navLinkBtn}>
+                Our Services
+              </button>
+              <div className={styles.dropdownMenu}>
+                {SERVICE_LINKS.map((s) => (
+                  <Link key={s.href} href={s.href}>{s.label}</Link>
+                ))}
+              </div>
+            </li>
             <li>{nav("work", "Our Work")}</li>
             <li>{nav("contact", "Contact Us")}</li>
           </ul>
@@ -80,7 +106,27 @@ export default function Nav() {
         </div>
         <div className={`${styles.mobileMenu} ${menuOpen ? styles.mobileMenuOpen : ""}`}>
           {nav("story-reveal", "Our Story", true)}
-          {nav("services", "Our Services", true)}
+          <button
+            type="button"
+            className={styles.mobileServicesBtn}
+            onClick={() => setServicesOpen((o) => !o)}
+          >
+            Our Services
+          </button>
+          {servicesOpen && (
+            <div className={styles.mobileServicesExpanded}>
+              {SERVICE_LINKS.map((s) => (
+                <Link
+                  key={s.href}
+                  href={s.href}
+                  className={styles.mobileServiceLink}
+                  onClick={() => { setMenuOpen(false); setServicesOpen(false); }}
+                >
+                  {s.label}
+                </Link>
+              ))}
+            </div>
+          )}
           {nav("work", "Our Work", true)}
           {nav("contact", "Contact Us", true)}
         </div>

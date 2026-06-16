@@ -9,7 +9,7 @@ import styles from "./ServiceLayout.module.css";
 
 export type ServicePackage = {
   name: string;
-  price: string;
+  price?: string;
   features: string[];
 };
 

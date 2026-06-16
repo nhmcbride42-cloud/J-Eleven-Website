@@ -16,7 +16,7 @@ export default function HostingPage() {
       packages={[
         {
           name: "Basic Hosting",
-          price: "Starting at $XX/mo",
+          price: "Included with website purchase",
           features: [
             "Managed hosting",
             "SSL certificate",
@@ -26,7 +26,7 @@ export default function HostingPage() {
         },
         {
           name: "Standard Hosting",
-          price: "Starting at $XX/mo",
+          price: "Included with select website packages",
           features: [
             "Everything in Basic",
             "Weekly backups",
@@ -36,7 +36,7 @@ export default function HostingPage() {
         },
         {
           name: "Premium Hosting",
-          price: "Starting at $XX/mo",
+          price: "Included with select website packages",
           features: [
             "Everything in Standard",
             "Daily backups",

@@ -15,6 +15,16 @@ export default function ScrollContainer({ children }: Props) {
     const el = ref.current;
     if (!el) return;
 
+    const saved = sessionStorage.getItem("homeScrollTop");
+    if (saved !== null) {
+      requestAnimationFrame(() => requestAnimationFrame(() => {
+        el.scrollTop = parseInt(saved, 10);
+      }));
+    }
+
+    const onScroll = () => sessionStorage.setItem("homeScrollTop", String(el.scrollTop));
+    el.addEventListener("scroll", onScroll, { passive: true });
+
     const onWheel = (e: WheelEvent) => {
       // Trackpads produce many small fractional-pixel events; mouse wheels
       // produce a single large discrete event. We treat any non-trackpad
@@ -60,7 +70,10 @@ export default function ScrollContainer({ children }: Props) {
     };
 
     el.addEventListener("wheel", onWheel, { passive: false });
-    return () => el.removeEventListener("wheel", onWheel);
+    return () => {
+      el.removeEventListener("wheel", onWheel);
+      el.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   return (

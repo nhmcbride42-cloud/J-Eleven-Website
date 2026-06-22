@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import styles from "./OurServices.module.css";
 
 const icons = {
@@ -57,11 +58,11 @@ const icons = {
 };
 
 const SERVICES = [
-  { num: "01", label: "Web Development",     desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out. Sites starting at $1,000" },
-  { num: "02", label: "Maintenance Plans",        desc: "We offer monthly maintenance, content updates, security monitoring, and more to ensure your website stays updated" },
-  { num: "03", label: "Website Hosting",        desc: "All website hosting and domain management is handled by us, so there's one less thing for you to worry about" },
-  { num: "04", label: "Advanced SEO",             desc: "In-depth research done into your brand and niche so we can optimize your website to attract the right customers" },
-  { num: "05", label: "Social Media Growth", desc: "We provide you with a social media toolkit containing strategies, content creation, and scheduling so you can hit the ground running"}
+  { num: "01", label: "Web Development",     desc: "From concept, we build beautiful, mobile-ready websites that help local businesses stand out. Sites starting at $1,000", href: "/services/web-development" },
+  { num: "02", label: "Maintenance Plans",        desc: "We offer monthly maintenance, content updates, security monitoring, and more to ensure your website stays updated", href: "/services/maintenance" },
+  { num: "03", label: "Website Hosting",        desc: "All website hosting and domain management is handled by us, so there's one less thing for you to worry about", href: "/services/hosting" },
+  { num: "04", label: "Advanced SEO",             desc: "In-depth research done into your brand and niche so we can optimize your website to attract the right customers", href: "/services/seo" },
+  { num: "05", label: "Social Media Growth", desc: "We provide you with a social media toolkit containing strategies, content creation, and scheduling so you can hit the ground running", href: "/services/social-media" },
 ];
 
 export default function OurServices() {
@@ -148,10 +149,12 @@ export default function OurServices() {
 
       <div className={styles.body}>
         {SERVICES.map((s, i) => (
-          <div
+          <Link
             key={s.num}
+            href={s.href}
             className={[
               styles.item,
+              styles.itemLink,
               i % 2 === 1 ? styles.itemRight : styles.itemLeft,
               shown >= i + 1 ? styles.itemVisible : "",
             ].join(" ")}
@@ -163,7 +166,7 @@ export default function OurServices() {
               <h3 className={styles.title}>{s.label}</h3>
               {s.desc && <p className={styles.desc}>{s.desc}</p>}
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 

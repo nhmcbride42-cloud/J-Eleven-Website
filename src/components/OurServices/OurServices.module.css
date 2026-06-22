@@ -30,6 +30,11 @@
   gap: clamp(0.15rem, 0.25vw, 0.3rem);
 }
 
+.itemLink {
+  text-decoration: none;
+  pointer-events: none;
+}
+
 .item {
   display: flex;
   align-items: flex-start;
@@ -129,6 +134,14 @@
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .itemLink {
+    pointer-events: auto;
+  }
+  .itemLink:active .item,
+  .itemLink:active {
+    opacity: 0.75;
+  }
+
   .section {
     height: auto;
     overflow: visible;

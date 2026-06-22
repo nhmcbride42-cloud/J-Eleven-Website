@@ -90,21 +90,13 @@
   background: #fff;
   border-radius: 16px;
   padding: 1.2rem 1.4rem;
-  border: 1px solid var(--line);
+  border: 1px solid var(--clay);
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
-  transition: border-color 0.2s ease;
 }
 
-.package:hover {
-  border-color: var(--clay);
-}
-
-.packageFeatured {
-  border-color: var(--clay);
-  background: #fff;
-}
+.packageFeatured {}
 
 .packageHeader {
   display: flex;

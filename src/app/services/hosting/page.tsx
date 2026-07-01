@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import ServiceLayout from "@/components/OurServicesExpanded/ServiceLayout";
 
 export const metadata: Metadata = {
-  title: "Website Hosting",
-  description: "Reliable website hosting and domain management for East Tennessee small businesses.",
+  title: "Website Hosting & Domain Management | East Tennessee",
+  description: "Managed, reliable website hosting and domain management for small businesses in the Knoxville, Loudon, Lenoir City, and other East Tennessee communities",
 };
 
 export default function HostingPage() {

@@ -11,8 +11,8 @@ export async function POST(req: Request) {
     }
 
     const result = await resend.emails.send({
-      from: "J Eleven Media <hello@jelevenmedia.com>",
-      to: "haydenmcbride@jelevenmedia.com",
+      from: "J Eleven Media <jelevenmedia@gmail.com>",
+      to: "nhmcbride42@gmail.com",
       subject: `New inquiry from ${name}`,
       html: `<!DOCTYPE html>
 <html lang="en">

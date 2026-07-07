@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import ServiceLayout from "@/components/OurServicesExpanded/ServiceLayout";
+import ServiceLayout from "@/components/services/ServiceLayout";
 
 export const metadata: Metadata = {
   title: "Advanced SEO",

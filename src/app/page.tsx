@@ -1,10 +1,10 @@
-import Nav from "@/components/Nav/Nav";
-import Hero from "@/components/Hero/Hero";
-import OurStoryReveal from "@/components/OurStory/OurStoryReveal";
-import OurServices from "@/components/OurServices/OurServices";
-import ScrollContainer from "@/components/ScrollContainer/ScrollContainer";
-import OurWork from "@/components/OurWork/OurWork";
-import Contact from "@/components/Contact/Contact";
+import Nav from "@/components/layout/Nav";
+import Hero from "@/components/home/Hero";
+import OurStoryReveal from "@/components/home/OurStoryReveal";
+import OurServices from "@/components/home/OurServices";
+import ScrollContainer from "@/components/home/ScrollContainer";
+import OurWork from "@/components/home/OurWork";
+import Contact from "@/components/home/Contact";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
       <Nav />
       <ScrollContainer>
 
-        <section data-snap-section id="hero" style={{ height: "100%", scrollSnapAlign: "start" }}>
+        <section data-snap-section id="hero" className="h-full snap-start">
           <Hero />
         </section>
 

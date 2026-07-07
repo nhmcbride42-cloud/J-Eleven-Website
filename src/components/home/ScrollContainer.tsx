@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import styles from "@/app/page.module.css";
 
 interface Props {
   children: React.ReactNode;
@@ -77,7 +76,10 @@ export default function ScrollContainer({ children }: Props) {
   }, []);
 
   return (
-    <main ref={ref} className={styles.main}>
+    <main
+      ref={ref}
+      className="h-[calc(100dvh-var(--nav-h))] snap-y snap-mandatory scroll-smooth overflow-y-scroll max-md:snap-none"
+    >
       {children}
     </main>
   );

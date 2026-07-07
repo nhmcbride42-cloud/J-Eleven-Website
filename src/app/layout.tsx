@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Hanken_Grotesk, Playfair_Display, Bodoni_Moda } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import "@/styles/globals.css";
+import "./globals.css";
 
+// ── Fonts — loaded once here, referenced sitewide via font-bodoni / font-cormorant / font-playfair / font-hanken ──
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
@@ -33,6 +34,7 @@ const hanken = Hanken_Grotesk({
 
 const SITE_URL = "https://www.jelevenmedia.com";
 
+// ── Page metadata — title, description, Open Graph, Twitter card, robots ──
 export const metadata: Metadata = {
   title: {
     default: "J Eleven Media | East Tennessee Web Design",
@@ -79,16 +81,14 @@ export const metadata: Metadata = {
   },
 };
 
-// LocalBusiness / ProfessionalService structured data.
-// TODO: fill in real phone, address (or remove if staying service-area-only),
-// and live social URLs before shipping.
+// ── Sitewide LocalBusiness / ProfessionalService structured data (business-level; page-level service schema lives in OurServices.tsx) ──
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "J Eleven Media",
   image: `${SITE_URL}/og-image.jpg`,
   url: SITE_URL,
-  telephone: "+1-XXX-XXX-XXXX", // TODO: real number
+  telephone: "+1-865-684-0526",
   priceRange: "$$",
   address: {
     "@type": "PostalAddress",
@@ -107,9 +107,8 @@ const jsonLd = {
     { "@type": "Person", name: "Olivia McBride" },
   ],
   sameAs: [
-    // TODO: add live social profile URLs, e.g.
-    // "https://www.facebook.com/jelevenmedia",
-    // "https://www.instagram.com/jelevenmedia",
+    "https://www.facebook.com/profile.php?id=61585042963260",
+    "https://www.instagram.com/jelevenmedia/",
   ],
   description:
     "J Eleven Media is a web design studio serving Lenoir City, Loudon, Knoxville, and East Tennessee, offering custom websites, hosting, maintenance, and local SEO.",
@@ -121,17 +120,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      className={`${bodoni.variable} ${cormorant.variable} ${hanken.variable} ${playfair.variable}`}
-    >
+    <html lang="en" className={`${bodoni.variable} ${cormorant.variable} ${hanken.variable} ${playfair.variable}`}>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#e7e4dd" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {/* SEO structured data — business info, read by search engines */}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>
         {children}

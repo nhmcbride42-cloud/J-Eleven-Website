@@ -3,7 +3,6 @@ import { Cormorant_Garamond, Hanken_Grotesk, Playfair_Display, Bodoni_Moda } fro
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-// ── Fonts — loaded once here, referenced sitewide via font-bodoni / font-cormorant / font-playfair / font-hanken ──
 const bodoni = Bodoni_Moda({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
@@ -34,7 +33,6 @@ const hanken = Hanken_Grotesk({
 
 const SITE_URL = "https://www.jelevenmedia.com";
 
-// ── Page metadata — title, description, Open Graph, Twitter card, robots ──
 export const metadata: Metadata = {
   title: {
     default: "J Eleven Media | East Tennessee Web Design",
@@ -58,21 +56,12 @@ export const metadata: Metadata = {
     title: "J Eleven Media | East Tennessee Web Design",
     description:
       "Custom websites, maintenance plans, and local SEO for small businesses in Lenoir City, Knoxville, and East Tennessee.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "J Eleven Media — Web Design Studio in Lenoir City, TN",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "J Eleven Media | East Tennessee Web Design",
     description:
       "Custom websites and local SEO for small businesses across East Tennessee.",
-    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
@@ -81,12 +70,11 @@ export const metadata: Metadata = {
   },
 };
 
-// ── Sitewide LocalBusiness / ProfessionalService structured data (business-level; page-level service schema lives in OurServices.tsx) ──
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "J Eleven Media",
-  image: `${SITE_URL}/og-image.jpg`,
+  image: `${SITE_URL}/opengraph-image`,
   url: SITE_URL,
   telephone: "+1-865-684-0526",
   priceRange: "$$",
@@ -95,6 +83,11 @@ const jsonLd = {
     addressLocality: "Lenoir City",
     addressRegion: "TN",
     addressCountry: "US",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 35.7929,
+    longitude: -84.2527,
   },
   areaServed: [
     { "@type": "City", name: "Lenoir City" },
@@ -124,7 +117,10 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#e7e4dd" />
-        {/* SEO structured data — business info, read by search engines */}
+        <meta name="geo.region" content="US-TN" />
+        <meta name="geo.placename" content="Lenoir City, Tennessee" />
+        <meta name="geo.position" content="35.7929;-84.2527" />
+        <meta name="ICBM" content="35.7929, -84.2527" />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       </head>
       <body>

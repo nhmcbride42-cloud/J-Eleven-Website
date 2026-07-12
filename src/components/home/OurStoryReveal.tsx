@@ -90,7 +90,7 @@ export default function OurStoryReveal() {
           {/* ── Column 2: family photo ── */}
           <div className="flex h-[120vw] items-center justify-center overflow-hidden md:h-auto md:border-r md:border-line-2 md:p-[clamp(0.8rem,1.5vw,1.5rem)]">
             <div className="relative flex h-full w-full items-center justify-center overflow-hidden">
-              <Image src="/family-photo.jpg" alt="The J Eleven family" width={412} height={705}
+              <Image src="/family-photo.jpg" alt="Hayden and Olivia McBride, founders of J Eleven Media in Lenoir City, TN" width={412} height={705}
                 className="absolute left-0 top-[-10%] h-[140%] w-full rounded-none object-cover object-top md:static md:h-full md:rounded-[14px] md:object-[center_50%]" />
             </div>
           </div>

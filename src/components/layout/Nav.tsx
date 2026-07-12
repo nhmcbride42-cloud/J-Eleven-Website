@@ -98,7 +98,7 @@ export default function Nav() {
               <button type="button" className={desktopLink}>
                 Our Services
               </button>
-              <div className="pointer-events-none absolute left-1/2 top-[80%] z-[200] flex min-w-[200px] -translate-x-1/2 flex-col rounded-b-xl border border-t-0 border-line-2 bg-paper py-2 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+              <div className="pointer-events-none absolute left-1/2 top-full z-[200] flex min-w-[200px] -translate-x-1/2 flex-col rounded-b-xl border border-t-0 border-line-2 bg-paper py-2 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
                 {SERVICE_LINKS.map((s) => (
                   <Link
                     key={s.href}
@@ -145,7 +145,7 @@ export default function Nav() {
                 <Link
                   key={s.href}
                   href={s.href}
-                  className="border-t border-line py-3.5 pl-[42px] pr-7 font-playfair text-[0.85rem] tracking-[0.12em] text-ink no-underline opacity-75 hover:opacity-100"
+                  className="border-t border-line py-4 pl-[42px] pr-7 font-playfair text-[0.85rem] tracking-[0.12em] text-ink no-underline opacity-75 hover:opacity-100"
                   onClick={() => { setMenuOpen(false); setServicesOpen(false); }}
                 >
                   {s.label}

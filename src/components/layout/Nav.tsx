@@ -84,11 +84,11 @@ export default function Nav() {
         <div className="mx-auto grid h-[var(--nav-h)] max-w-[1440px] grid-cols-[auto_auto] items-center justify-between px-6 lg:grid-cols-[auto_1fr_auto] lg:justify-normal lg:px-12">
           <Link href="/" className="flex items-center justify-self-start leading-none no-underline">
             <Image
-              src="/transparent.png"
+              src="/big-logo.jpg"
               alt="J Eleven Media logo"
-              width={80}
-              height={80}
-              className="block h-[100px] w-auto max-[480px]:h-[80px]"
+              width={2000}
+              height={577}
+              className="block h-[65px] w-auto max-[480px]:h-[52px]"
             />
           </Link>
 
